@@ -40,7 +40,7 @@ public class CarModel implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "dealer_id", referencedColumnName = "id", nullable = false)
 	@OnDelete(action = OnDeleteAction.NO_ACTION)
-	@JsonIgnore
+	
 	private DealerModel dealer;
 
 	public long getId() {

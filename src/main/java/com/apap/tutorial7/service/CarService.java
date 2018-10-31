@@ -6,7 +6,7 @@ import java.util.Optional;
 import com.apap.tutorial7.model.CarModel;
 
 public interface CarService {
-	void addCar(CarModel car);
+	CarModel addCar(CarModel car);
 
 	void deleteCar(CarModel car);
 	

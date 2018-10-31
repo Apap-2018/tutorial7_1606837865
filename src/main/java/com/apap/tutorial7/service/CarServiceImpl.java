@@ -17,11 +17,7 @@ public class CarServiceImpl implements CarService{
 	@Autowired
 	private CarDb carDb;
 	
-	@Override
-	public void addCar(CarModel car) {
-		carDb.save(car);
-		
-	}
+
 	
 	@Override
 	public void deleteCar(CarModel car) {
@@ -54,5 +50,11 @@ public class CarServiceImpl implements CarService{
 	public List<CarModel> getAllCar() {
 		// TODO Auto-generated method stub
 		return carDb.findAll();
+	}
+
+	@Override
+	public CarModel addCar(CarModel car) {
+		// TODO Auto-generated method stub
+		return carDb.save(car);
 	}
 }

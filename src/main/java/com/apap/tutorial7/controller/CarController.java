@@ -25,13 +25,24 @@ public class CarController {
 	private DealerService dealerService;
 	
 	@GetMapping()
-	private List<CarModel> getAllCar(){
-		return carService.getAllCar();
+	private List<CarModel> viewAllCar(){
+		List<CarModel> listCar = carService.getAllCar();
+		for(CarModel car : listCar) {
+			car.setDealer(null);
+		}
+		return listCar;
+	}
+	
+	@PostMapping()
+	private CarModel addCarSubmit(@RequestBody CarModel car) {
+		return carService.addCar(car);
 	}
 	
 	@GetMapping(value = "/{carId}")
 	private CarModel viewCar(@PathVariable("carId") long carId) {
-		return carService.getCarDetailById(carId).get();
+		CarModel car = carService.getCarDetailById(carId).get();
+		car.setDealer(null);
+		return car;
 	}
 	
 	@DeleteMapping(value = "{carId}")
